@@ -1,3 +1,4 @@
+
 # 🎉 Birthday Website  
 
 An interactive, animated birthday celebration website built with **HTML, CSS, JavaScript, and GSAP**.  
@@ -5,7 +6,7 @@ It features:
 ✨ Secret code authentication  
 ✨ Animated intro text & photo gallery  
 ✨ Heartfelt birthday messages  
-✨ A spinning wheel game with ticking + prize reveal cheated to alway land on a particular option.
+✨ A spinning wheel game with ticking slowdown + rigged prize reveal  
 ✨ Fun typewriter effects & confetti celebration  
 ✨ Background music  
 
@@ -16,7 +17,6 @@ This project was created as a special gift — but you’re welcome to fork it, 
 ## 📂 Project Structure  
 
 ```
-
 .
 ├── index.html          # Main entry point
 ├── css/
@@ -44,11 +44,11 @@ This project was created as a special gift — but you’re welcome to fork it, 
 1. **Clone or download** this repo  
    ```bash
    git clone https://github.com/idiegea21/cu
-   cd birthday-experience
-````
+   cd cu
+``
 
 2. **Open the site**
-   Just open `final.html` in your browser — no build tools required.
+   Just open `index.html` in your browser — no build tools required.
 
 3. **Customize** 🎨
 
@@ -104,6 +104,3 @@ Free to use, modify, and share — just keep the fun alive. 🎂
 
 * [GSAP](https://greensock.com/gsap/) for smooth animations
 * [Google Fonts](https://fonts.google.com/) for typography
-* Everyone celebrating life 🎉
-
----
