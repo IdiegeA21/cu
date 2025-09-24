@@ -52,7 +52,6 @@ function checkAuth() {
         const { timestamp } = JSON.parse(authData);
         if (Date.now() - timestamp < AUTH_DURATION) {
             isAuthenticated = true;
-            document.getElementById("bgMusic").play();
             startExperience();
             return;
         }
@@ -72,7 +71,7 @@ function authenticate() {
             JSON.stringify({ timestamp: Date.now() })
         );
         isAuthenticated = true;
-        document.getElementById("bgMusic").play();
+        playPauseMusic();
 
         gsap.to("#authScreen", {
             opacity: 0,
@@ -100,6 +99,7 @@ function startExperience() {
     document.getElementById("mainExperience").classList.remove("hidden");
     gsap.to("#mainExperience", { opacity: 1, duration: 1 });
     setTimeout(() => showIntro(), 500);
+
 }
 
 // Show intro
@@ -107,7 +107,7 @@ function showIntro() {
     updateProgress(10);
     gsap.to("#introText", {
         duration: 3,
-        text: "Heyy, guess who's day it is today...",
+        text: "Guess whose big day it is today?...",
         ease: "none",
         onComplete: () => {
             setTimeout(() => showPhotos(), 1500);
@@ -165,7 +165,7 @@ function showMessage() {
         });
 
         gsap.to(lineElement, {
-            duration: messageLines[currentLine].length * 0.03,
+            duration: messageLines[currentLine].length * 0.06,
             text: messageLines[currentLine],
             ease: "none",
             onComplete: () => {
@@ -318,7 +318,7 @@ function showResult(gift) {
     const caretEl = document.getElementById("caret");
 
     // message: use \n for line breaks (not /n)
-    const message = (`A whole ${gift} 😂😂😂😂\n \n Is like you will give me Gun oo!!!\n😂😂😂`).trim();
+    const message = (`Look at who won a ${gift}! 😂😂😂😂\n \n Anyways, \n Close your eyes and wish for it in your heart, it might just come true.🤭 \n OR \n SEND BOYS AND ARRANGED GUNS LET'S ROB A BANK!!!\n😂😂😂`).trim();
 
     // animate the result section in
     gsap.fromTo(
@@ -380,7 +380,7 @@ function showFinal() {
         createConfetti();
     }
 
-    document.getElementById("bgMusic").pause();
+    // document.getElementById("bgMusic").pause();
 }
 
 // Create confetti
@@ -427,8 +427,8 @@ function resetExperience() {
     // Hide all sections
     document.querySelector(".refresh-notification").classList.remove("hide");
     document
-    .querySelectorAll(".hidden")
-    .forEach((el) => el.classList.add("hidden"));
+        .querySelectorAll(".hidden")
+        .forEach((el) => el.classList.add("hidden"));
     document.getElementById("photoSection").classList.add("hidden");
     document.getElementById("messageSection").classList.add("hidden");
     document.getElementById("spinnerSection").classList.add("hidden");
@@ -467,6 +467,7 @@ document.getElementById("spin").addEventListener("click", spinWheel);
 document
     .getElementById("watchAgainBtn")
     .addEventListener("click", resetExperience);
+document.getElementById("playSound").addEventListener("click", playPauseMusic);
 
 // Initialize
 document.addEventListener("DOMContentLoaded", () => {
@@ -484,3 +485,17 @@ document.addEventListener("DOMContentLoaded", () => {
         startExperience();
     }
 });
+
+function playPauseMusic() {
+    const bgMusic = document.getElementById("bgMusic");
+    const playSoundBtn = document.getElementById("playSound");
+
+    if (bgMusic.paused) {
+        bgMusic.play();
+        playSoundBtn.textContent = "⏸"; // Pause icon
+    } else {
+        bgMusic.pause();
+        playSoundBtn.textContent = "▶"; // Play icon
+    }
+
+}
