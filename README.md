@@ -104,3 +104,6 @@ Free to use, modify, and share — just keep the fun alive. 🎂
 
 * [GSAP](https://greensock.com/gsap/) for smooth animations
 * [Google Fonts](https://fonts.google.com/) for typography
+* Everyone celebrating life 🎉
+
+---
