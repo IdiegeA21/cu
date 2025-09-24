@@ -304,10 +304,9 @@ function showResult(gift) {
     // set up markup: image + typing wrapper (note typedText uses textContent)
     resultText.innerHTML = `
     <div id="resultImage" style="opacity:0; transform:scale(0.85); display:flex; justify-content:center; margin-bottom:16px;">
-      <img src="./images/jet.jpg"
-           height="350"
-           alt="gift"
-           style="border-radius:6px; box-shadow:0 10px 30px rgba(0,0,0,0.55);" />
+      <img src="./images/jet.png"
+            alt="gift"
+           class="price-image" />
     </div>
     <div id="typeWrap">
       <span id="typedText" style="white-space:pre-wrap;"></span><span id="caret" class="caret">|</span>
@@ -318,7 +317,7 @@ function showResult(gift) {
     const caretEl = document.getElementById("caret");
 
     // message: use \n for line breaks (not /n)
-    const message = (`Look at who won a ${gift}! 😂😂😂😂\n \n Anyways, \n Close your eyes and wish for it in your heart, it might just come true.🤭 \n OR \n SEND BOYS AND ARRANGED GUNS LET'S ROB A BANK!!!\n😂😂😂`).trim();
+    const message = (`Look at who won a ${gift}! 😂😂😂😂\n \n Anyways, \n Close your eyes and wish for it in your heart, it may just come true.🤭 \n OR \n SEND BOYS AND ARRANGED GUNS LET'S ROB A BANK!!!\n😂😂😂`).trim();
 
     // animate the result section in
     gsap.fromTo(
